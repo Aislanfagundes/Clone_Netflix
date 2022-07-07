@@ -23,3 +23,10 @@ class Filme(models.Model):
 
 # CRIAR OS EPISODIOS
 
+class Episodio(models.Model):
+    filme = models.ForeignKey('Filme', related_name='episodios', on_delete=models.CASCADE) # a classe filme precisa entrar como string
+    titulo = models.CharField(max_length=100)
+    video = models.URLField()
+
+    def __str__(self):
+        return self.filme.titulo + " - " + self.titulo
