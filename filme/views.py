@@ -30,6 +30,12 @@ class Detalhesfilme(DetailView):
     model = Filme
     # object -> 1 item do nosso modelo
 
+    def get(self, request, *args, **kwargs):
+        filme = self.get_object()
+        filme.visualizacao += 1
+        filme.save()
+        return super().get(request, *args, **kwargs) #redireciona o usuário para o URL final
+
     def get_context_data(self, **kwargs):
         context = super(Detalhesfilme, self).get_context_data(**kwargs)
         # filtrar a minha tabela de filmes pegando os filmes cuja categoria é igual a categoria do filme da pagina (object)
