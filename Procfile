@@ -1,1 +1,2 @@
-web:gunicorn myproject.wsgi
+web: gunicorn netflixcloneaislan.wsgi --log-file -
+
