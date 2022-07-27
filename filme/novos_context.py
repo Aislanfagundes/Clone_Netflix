@@ -9,5 +9,5 @@ def lista_filmes_emalta(request):
     return {'lista_filmes_emalta': lista_filmes} # é essa variação que vamos usar no HTML, então não pode ser um nome já usado
 
 def filme_destaque(request):
-    filme = Filme.objects.order_by('-data_criacao')
+    filme = Filme.objects.order_by('-data_criacao')[0]
     return {"filme_destaque": filme}
