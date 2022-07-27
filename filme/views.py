@@ -40,7 +40,7 @@ class Detalhesfilme(DetailView):
         context = super(Detalhesfilme, self).get_context_data(**kwargs)
         # filtrar a minha tabela de filmes pegando os filmes cuja categoria é igual a categoria do filme da pagina (object)
         # self.get_object()
-        filmes_relacionados = Filme.objects.filter(categoria=self.get_object().categoria)
+        filmes_relacionados = self.model.objects.filter(categoria=self.get_object().categoria)
         context['filmes_relacionados'] = filmes_relacionados
         return context
 
