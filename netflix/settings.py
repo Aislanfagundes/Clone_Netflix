@@ -67,7 +67,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'filme.novos_context.lista_filmes_recentes',
                 'filme.novos_context.lista_filmes_emalta',
-                'filme.novos_context.filme_destaque',
             ],
         },
     },
@@ -95,6 +94,7 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
+AUTH_USER_MODEL = 'filme.Usuario'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
